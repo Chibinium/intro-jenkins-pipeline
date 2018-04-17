@@ -9,10 +9,7 @@ pipeline {
     stage('Say hello') {
       steps {
         sh 'echo \'Hello World!\''
-      }
-    }
-    stage('mvn -v') {
-      steps {
+        sh 'java -version'
         sh 'sh \'mvn -v\''
       }
     }
