@@ -6,7 +6,7 @@ pipeline {
         message 'Should we continue?'
       }
       steps {
-        echo 'Authorized for ${NAME}'
+        echo "Authorized for ${params.NAME}"
       }
     }
   }
