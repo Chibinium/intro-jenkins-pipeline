@@ -1,13 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('Say hello') {
+    stage('Deploy') {
+      options {
+        timeout(time: 1, unit: 'MINUTES')
+      }
+      input {
+        message 'Should we continue?'
+      }
       steps {
-        echo 'Hello ${params.Name}!'
+        echo 'Continuing with deployment'
       }
     }
-  }
-  parameters {
-    string(name: 'Name', defaultValue: 'Default User', description: 'Who should I say hi to?')
   }
 }
