@@ -1,17 +1,17 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.5.2-jdk-9'
-    }
-    
-  }
+  agent any
   stages {
     stage('Say hello') {
       steps {
-        sh 'echo \'Hello World!\''
+        sh 'echo \'Hello ${MY_NAME}!\''
         sh 'java -version'
-        sh 'mvn -v'
+        sh '''echo "${TEST_USER_USR}"
+echo "${TEST_USER_PSW}"'''
       }
     }
+  }
+  environment {
+    MY_NAME = 'Mary'
+    TEST_USER = 'credentials(\'test-user\')'
   }
 }
