@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh 'echo \'Hello World!\''
         sh 'java -version'
-        sh 'sh \'mvn -v\''
+        sh 'mvn -v'
       }
     }
   }
