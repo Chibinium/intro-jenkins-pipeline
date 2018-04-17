@@ -1,16 +1,13 @@
 pipeline {
-  agent {
-    docker {
-      image 'golang:1.10-alpine'
-      label 'docker-cloud'
-    }
-    
-  }
+  agent any
   stages {
     stage('Say hello') {
       steps {
-        sh 'go version'
+        echo 'Hello ${params.Name}!'
       }
     }
+  }
+  parameters {
+    string(name: 'Name', defaultValue: 'Default User', description: 'Who should I say hi to?')
   }
 }
